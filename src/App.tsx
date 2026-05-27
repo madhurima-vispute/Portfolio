@@ -16,14 +16,17 @@ export default function App() {
   useEffect(() => {
     // Smoothly fade out and hide the static shell overlay once React hydrates
     const shell = document.getElementById('app-shell');
+    let timer: ReturnType<typeof setTimeout> | undefined;
     if (shell) {
       shell.style.opacity = '0';
       shell.style.visibility = 'hidden';
-      const timer = setTimeout(() => {
+      timer = setTimeout(() => {
         shell.remove();
       }, 400);
-      return () => clearTimeout(timer);
     }
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
   }, []);
 
   useEffect(() => {
