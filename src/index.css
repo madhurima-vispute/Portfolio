@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #030303;
+    color: #e4e4e7;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Custom high-performance, elegant, thin scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #030303;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #1f1f23;
+    border-radius: 9999px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #10B981;
+  }
+}
+
+/* Custom premium design system classes */
+@layer utilities {
+  /* Radial grid background similar to Vercel/Linear landing pages */
+  .bg-grid-pattern {
+    background-image: 
+      radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.04) 0%, transparent 60%),
+      linear-gradient(rgba(24, 24, 27, 0.15) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(24, 24, 27, 0.15) 1px, transparent 1px);
+    background-size: 100% 100%, 40px 40px, 40px 40px;
+  }
+
+  /* Clean gradient text masking */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-zinc-100 via-zinc-200 to-zinc-400;
+  }
+
+  .text-gradient-emerald {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-500;
+  }
+
+  /* Premium hairline active cards */
+  .card-premium {
+    @apply bg-obsidian-900/60 border border-zinc-800/50 backdrop-blur-md rounded-xl transition-all duration-300;
+  }
+
+  .card-premium-hover {
+    @apply hover:border-emerald-500/30 hover:bg-obsidian-900/80 hover:shadow-[0_0_20px_-5px_rgba(16,185,129,0.06)];
+  }
+
+  /* Soft glowing pointer */
+  .glow-hover {
+    @apply relative overflow-hidden after:absolute after:inset-0 after:z-[-1] after:opacity-0 after:transition-opacity after:duration-500 after:bg-[radial-gradient(circle_at_var(--x,0px)_var(--y,0px),rgba(16,185,129,0.08)_0%,transparent_50%)] hover:after:opacity-100;
+  }
+}
+
+/* Custom CSS utilities for smooth interactivity */
+.active-dot::after {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: #10B981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10B981;
+}
+
+/* Keyboard accessibility support */
+*:focus-visible {
+  @apply outline-none ring-2 ring-emerald-500/50 ring-offset-2 ring-offset-black;
+}
+
+/* Premium lightweight scroll-reveal animations */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.45s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.45s cubic-bezier(0.215, 0.61, 0.355, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
