@@ -104,6 +104,23 @@
       transform: none !important;
       transition: none !important;
     }
+    /* Disable expensive Safari backdrop-filters on mobile to eliminate all scroll rendering lag and freezes */
+    .backdrop-blur-md,
+    .backdrop-blur-lg,
+    [class*="backdrop-blur"] {
+      -webkit-backdrop-filter: none !important;
+      backdrop-filter: none !important;
+    }
+    /* Set beautiful, high-performance solid backgrounds for overlays on mobile */
+    .card-premium,
+    .bg-obsidian-950\/40,
+    .bg-obsidian-950\/60,
+    .bg-obsidian-900\/60 {
+      background-color: rgba(14, 14, 16, 0.98) !important;
+    }
+    header.bg-obsidian-950\/80 {
+      background-color: rgba(3, 3, 3, 0.98) !important;
+    }
   }
 
   /* New fade-in transition utility */
