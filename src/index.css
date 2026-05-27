@@ -81,15 +81,23 @@
 }
 
 /* Premium lightweight scroll-reveal animations */
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.45s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.45s cubic-bezier(0.215, 0.61, 0.355, 1);
-  will-change: opacity, transform;
-}
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.45s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.45s cubic-bezier(0.215, 0.61, 0.355, 1);
+    will-change: opacity, transform;
+  }
 
-.scroll-reveal.revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
+  /* New fade-in transition utility */
+  .fade-in-transition {
+    opacity: 0;
+    transition: opacity 0.4s ease-out;
+  }
+  .fade-in-transition.show {
+    opacity: 1;
+  }
