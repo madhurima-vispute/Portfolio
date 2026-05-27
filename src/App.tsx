@@ -62,14 +62,10 @@ export default function App() {
       threshold: 0.01 // Lower threshold ensures sections activate instantly on top edge entry
     });
 
-    // Guard timeout ensures dynamic components have stabilized layouts before element query execution
-    const timer = setTimeout(() => {
-      const elements = document.querySelectorAll('.scroll-reveal');
-      elements.forEach(el => revealObserver.observe(el));
-    }, 100);
+    const elements = document.querySelectorAll('.scroll-reveal');
+    elements.forEach(el => revealObserver.observe(el));
 
     return () => {
-      clearTimeout(timer);
       const elements = document.querySelectorAll('.scroll-reveal');
       elements.forEach(el => revealObserver.unobserve(el));
     };
@@ -103,8 +99,8 @@ export default function App() {
         {/* Hero Section */}
         <Hero onContactClick={handleContactScroll} />
         
-        {/* Highlights Section */}
-        <div className="scroll-reveal">
+        {/* Highlights Section (Rendered immediately to prevent above-the-fold delays) */}
+        <div>
           <Dashboard />
         </div>
         
