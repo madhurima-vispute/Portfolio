@@ -108,3 +108,15 @@
   .fade-in-transition.show {
     opacity: 1;
   }
+
+  /* Fix iOS Safari GPU compositing and painting bugs on rounded/overflow/animated elements during scroll */
+  .rounded-xl,
+  .rounded-2xl,
+  .card-premium,
+  .scroll-reveal,
+  .fade-in-transition {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
