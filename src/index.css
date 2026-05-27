@@ -95,8 +95,14 @@
 
   @media (max-width: 768px) {
     .scroll-reveal {
-      transform: translateY(8px);
-      transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+    .fade-in-transition {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
     }
   }
 
@@ -107,16 +113,4 @@
   }
   .fade-in-transition.show {
     opacity: 1;
-  }
-
-  /* Fix iOS Safari GPU compositing and painting bugs on rounded/overflow/animated elements during scroll */
-  .rounded-xl,
-  .rounded-2xl,
-  .card-premium,
-  .scroll-reveal,
-  .fade-in-transition {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
   }
