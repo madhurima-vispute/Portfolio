@@ -93,6 +93,13 @@
     transform: translateY(0);
   }
 
+  @media (max-width: 768px) {
+    .scroll-reveal {
+      transform: translateY(8px);
+      transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  }
+
   /* New fade-in transition utility */
   .fade-in-transition {
     opacity: 0;

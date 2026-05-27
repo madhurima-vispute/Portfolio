@@ -58,7 +58,7 @@ export default function App() {
 
     const revealObserver = new IntersectionObserver(revealCallback, {
       root: null,
-      rootMargin: '0px 0px -40px 0px', // SNappy entry offset for clear visual transitions while scrolling
+      rootMargin: '400px 0px 300px 0px', // Reveal sections 400px early below viewport and 300px early above viewport to prevent black gaps
       threshold: 0.01 // Lower threshold ensures sections activate instantly on top edge entry
     });
 
