@@ -27,36 +27,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
   </head>
   <body style="background-color: #030303; color: #f4f4f5;" class="bg-[#030303] text-zinc-100 font-sans antialiased overflow-x-hidden selection:bg-emerald-500/20 selection:text-emerald-400">
-    <div id="root">
-      <!-- High-performance Static Shell (Pre-rendered Skeleton) -->
-      <div id="app-shell" style="min-height: 100vh; background-color: #030303; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; padding-top: 24px; font-family: system-ui, -apple-system, sans-serif; box-sizing: border-box; overflow: hidden; width: 100%;">
-        <div style="width: 100%; max-width: 1152px; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; height: 80px; box-sizing: border-box;">
-          <!-- Brand Logo Skeleton -->
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <div style="width: 32px; height: 32px; border-radius: 8px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); display: flex; align-items: center; justify-content: center; color: #34d399; font-family: monospace; font-size: 14px; font-weight: bold;">MV</div>
-            <div style="width: 120px; height: 12px; background: rgba(255,255,255,0.05); border-radius: 4px;"></div>
-          </div>
-          <!-- Menu Skeleton -->
-          <div style="display: flex; gap: 24px;">
-            <div style="width: 50px; height: 10px; background: rgba(255,255,255,0.05); border-radius: 3px;"></div>
-            <div style="width: 50px; height: 10px; background: rgba(255,255,255,0.05); border-radius: 3px;"></div>
-            <div style="width: 50px; height: 10px; background: rgba(255,255,255,0.05); border-radius: 3px;"></div>
-          </div>
+    <!-- High-performance Static Shell Overlay (Fades out seamlessly once React hydrates) -->
+    <div id="app-shell" style="position: fixed; inset: 0; z-index: 9999; background-color: #030303; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; padding-top: 24px; font-family: system-ui, -apple-system, sans-serif; box-sizing: border-box; overflow: hidden; width: 100%; height: 100%; transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s; opacity: 1; pointer-events: none;">
+      <div style="width: 100%; max-width: 1152px; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; height: 80px; box-sizing: border-box;">
+        <!-- Brand Logo Skeleton -->
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div style="width: 32px; height: 32px; border-radius: 8px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); display: flex; align-items: center; justify-content: center; color: #34d399; font-family: monospace; font-size: 14px; font-weight: bold;">MV</div>
+          <div style="width: 120px; height: 12px; background: rgba(255,255,255,0.05); border-radius: 4px;"></div>
         </div>
-        <!-- Hero Skeleton -->
-        <div style="width: 100%; max-width: 1152px; padding: 48px 24px; display: flex; flex-direction: column; align-items: flex-start; margin-top: 40px; box-sizing: border-box;">
-          <div style="width: 150px; height: 24px; border-radius: 9999px; background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); margin-bottom: 24px;"></div>
-          <div style="width: 80%; max-width: 600px; height: 36px; background: rgba(255,255,255,0.08); border-radius: 6px; margin-bottom: 12px;"></div>
-          <div style="width: 90%; max-width: 700px; height: 36px; background: rgba(255,255,255,0.08); border-radius: 6px; margin-bottom: 24px;"></div>
-          <div style="width: 95%; max-width: 500px; height: 16px; background: rgba(255,255,255,0.04); border-radius: 4px; margin-bottom: 8px;"></div>
-          <div style="width: 90%; max-width: 450px; height: 16px; background: rgba(255,255,255,0.04); border-radius: 4px; margin-bottom: 40px;"></div>
-          <div style="display: flex; gap: 16px;">
-            <div style="width: 160px; height: 44px; background: #10B981; border-radius: 8px;"></div>
-            <div style="width: 130px; height: 44px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;"></div>
-          </div>
+        <!-- Menu Skeleton -->
+        <div style="display: flex; gap: 24px;">
+          <div style="width: 50px; height: 10px; background: rgba(255,255,255,0.05); border-radius: 3px;"></div>
+          <div style="width: 50px; height: 10px; background: rgba(255,255,255,0.05); border-radius: 3px;"></div>
+          <div style="width: 50px; height: 10px; background: rgba(255,255,255,0.05); border-radius: 3px;"></div>
+        </div>
+      </div>
+      <!-- Hero Skeleton -->
+      <div style="width: 100%; max-width: 1152px; padding: 48px 24px; display: flex; flex-direction: column; align-items: flex-start; margin-top: 40px; box-sizing: border-box;">
+        <div style="width: 150px; height: 24px; border-radius: 9999px; background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); margin-bottom: 24px;"></div>
+        <div style="width: 80%; max-width: 600px; height: 36px; background: rgba(255,255,255,0.08); border-radius: 6px; margin-bottom: 12px;"></div>
+        <div style="width: 90%; max-width: 700px; height: 36px; background: rgba(255,255,255,0.08); border-radius: 6px; margin-bottom: 24px;"></div>
+        <div style="width: 95%; max-width: 500px; height: 16px; background: rgba(255,255,255,0.04); border-radius: 4px; margin-bottom: 8px;"></div>
+        <div style="width: 90%; max-width: 450px; height: 16px; background: rgba(255,255,255,0.04); border-radius: 4px; margin-bottom: 40px;"></div>
+        <div style="display: flex; gap: 16px;">
+          <div style="width: 160px; height: 44px; background: #10B981; border-radius: 8px;"></div>
+          <div style="width: 130px; height: 44px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;"></div>
         </div>
       </div>
     </div>
+
+    <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

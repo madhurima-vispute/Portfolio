@@ -14,6 +14,19 @@ export default function App() {
   const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
+    // Smoothly fade out and hide the static shell overlay once React hydrates
+    const shell = document.getElementById('app-shell');
+    if (shell) {
+      shell.style.opacity = '0';
+      shell.style.visibility = 'hidden';
+      const timer = setTimeout(() => {
+        shell.remove();
+      }, 400);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  useEffect(() => {
     const handleIntersection = (entries: IntersectionObserverEntry[]) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
