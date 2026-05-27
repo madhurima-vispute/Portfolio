@@ -4,7 +4,14 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22 width=%22100%22 height=%22100%22><rect width=%22100%22 height=%22100%22 fill=%22%23030303%22 rx=%2220%22/><text y=%2265%22 x=%2215%22 font-size=%2260%22 font-family=%22monospace%22 fill=%22%2310B981%22 font-weight=%22bold%22>MV</text></svg>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+    <meta name="theme-color" content="#030303" />
+    <!-- CRITICAL: Inline CSS to guarantee background color on very first paint, before any JS/CSS bundle loads -->
+    <style>
+      *,*::before,*::after{box-sizing:border-box}
+      html,body{margin:0;padding:0;background-color:#030303;color:#f4f4f5;-webkit-font-smoothing:antialiased}
+      #root{min-height:100vh;background-color:#030303}
+    </style>
+
     <!-- Primary SEO Meta Tags -->
     <title>Madhurima Vispute | Software Developer</title>
     <meta name="title" content="Madhurima Vispute | Software Developer" />
@@ -28,7 +35,7 @@
   </head>
   <body style="background-color: #030303; color: #f4f4f5;" class="bg-[#030303] text-zinc-100 font-sans antialiased overflow-x-hidden selection:bg-emerald-500/20 selection:text-emerald-400">
     <!-- High-performance Static Shell Overlay (Fades out seamlessly once React hydrates) -->
-    <div id="app-shell" style="position: fixed; inset: 0; z-index: 9999; background-color: #030303; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; padding-top: 24px; font-family: system-ui, -apple-system, sans-serif; box-sizing: border-box; overflow: hidden; width: 100%; height: 100%; transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s; opacity: 1; pointer-events: none;">
+    <div id="app-shell" style="position: fixed; inset: 0; z-index: 9999; background-color: #030303; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; padding-top: 24px; font-family: system-ui, -apple-system, sans-serif; box-sizing: border-box; overflow: hidden; width: 100%; height: 100%; transition: opacity 0.25s ease, visibility 0.25s; opacity: 1; pointer-events: none;">
       <div style="width: 100%; max-width: 1152px; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; height: 80px; box-sizing: border-box;">
         <!-- Brand Logo Skeleton -->
         <div style="display: flex; align-items: center; gap: 10px;">

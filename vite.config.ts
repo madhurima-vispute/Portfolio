@@ -8,13 +8,16 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
+          // Only split vendor (react + react-dom) — these are genuinely large and cacheable
           vendor: ['react', 'react-dom'],
-          animations: ['framer-motion'],
         }
       }
     },
     target: 'esnext',
     sourcemap: false,
-    minify: 'esbuild'
+    minify: 'esbuild',
+    // Inline CSS into JS bundle so there's no separate CSS fetch round-trip that causes FOUC
+    cssCodeSplit: false,
   }
 })
+

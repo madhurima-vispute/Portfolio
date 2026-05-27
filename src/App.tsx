@@ -14,19 +14,17 @@ export default function App() {
   const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
-    // Smoothly fade out and hide the static shell overlay once React hydrates
+    // Remove static shell overlay immediately once React is mounted
     const shell = document.getElementById('app-shell');
     let timer: ReturnType<typeof setTimeout> | undefined;
     if (shell) {
       shell.style.opacity = '0';
       shell.style.visibility = 'hidden';
-      timer = setTimeout(() => {
-        shell.remove();
-      }, 400);
+      shell.style.pointerEvents = 'none';
+      // Remove from DOM after transition completes
+      timer = setTimeout(() => shell.remove(), 300);
     }
-    return () => {
-      if (timer) clearTimeout(timer);
-    };
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
@@ -63,27 +61,38 @@ export default function App() {
 
   // Performance-conscious Scroll Reveal System
   useEffect(() => {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+    // On mobile: mark ALL scroll-reveal elements as revealed immediately
+    // so they're never invisible during scroll (avoids black gaps entirely)
+    if (isMobile) {
+      document.querySelectorAll('.scroll-reveal').forEach(el => {
+        el.classList.add('revealed');
+      });
+      return;
+    }
+
+    // Desktop: use IntersectionObserver for smooth slide-in animation
     const revealCallback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('revealed');
-          observer.unobserve(entry.target); // Unobserve to free up hardware thread resources
+          observer.unobserve(entry.target);
         }
       });
     };
 
     const revealObserver = new IntersectionObserver(revealCallback, {
       root: null,
-      rootMargin: '400px 0px 300px 0px', // Reveal sections 400px early below viewport and 300px early above viewport to prevent black gaps
-      threshold: 0.01 // Lower threshold ensures sections activate instantly on top edge entry
+      rootMargin: '200px 0px 100px 0px',
+      threshold: 0
     });
 
     const elements = document.querySelectorAll('.scroll-reveal');
     elements.forEach(el => revealObserver.observe(el));
 
     return () => {
-      const elements = document.querySelectorAll('.scroll-reveal');
-      elements.forEach(el => revealObserver.unobserve(el));
+      document.querySelectorAll('.scroll-reveal').forEach(el => revealObserver.unobserve(el));
     };
   }, []);
 

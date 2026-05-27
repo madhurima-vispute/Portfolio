@@ -80,50 +80,56 @@
   @apply outline-none ring-2 ring-emerald-500/50 ring-offset-2 ring-offset-black;
 }
 
-/* Premium lightweight scroll-reveal animations */
+/* Scroll-reveal: NEVER hides content (no opacity:0 ever)
+   Only adds a subtle entrance slide on desktop for polish */
   .scroll-reveal {
-    opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 0.45s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.45s cubic-bezier(0.215, 0.61, 0.355, 1);
-    will-change: opacity, transform;
+    transform: translateY(12px);
+    transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+    will-change: transform;
   }
 
   .scroll-reveal.revealed {
-    opacity: 1;
     transform: translateY(0);
   }
 
+  /* Mobile: disable all scroll animations and expensive GPU filters */
   @media (max-width: 768px) {
-    .scroll-reveal {
+    .scroll-reveal,
+    .scroll-reveal.revealed {
+      transform: none !important;
+      transition: none !important;
+      will-change: auto !important;
+    }
+    .fade-in-transition,
+    .fade-in-transition.show {
       opacity: 1 !important;
       transform: none !important;
       transition: none !important;
     }
-    .fade-in-transition {
-      opacity: 1 !important;
-      transform: none !important;
-      transition: none !important;
-    }
-    /* Disable expensive Safari backdrop-filters on mobile to eliminate all scroll rendering lag and freezes */
-    .backdrop-blur-md,
-    .backdrop-blur-lg,
-    [class*="backdrop-blur"] {
+    /* Kill ALL backdrop-filters on mobile — they cause compositing freezes */
+    *,
+    *::before,
+    *::after {
       -webkit-backdrop-filter: none !important;
       backdrop-filter: none !important;
     }
-    /* Set beautiful, high-performance solid backgrounds for overlays on mobile */
+    /* Solid opaque fallback backgrounds for glassmorphism cards */
     .card-premium,
-    .bg-obsidian-950\/40,
-    .bg-obsidian-950\/60,
-    .bg-obsidian-900\/60 {
-      background-color: rgba(14, 14, 16, 0.98) !important;
+    [class*="backdrop-blur"],
+    [class*="bg-obsidian-950"],
+    [class*="bg-obsidian-900"] {
+      background-color: #0e0e10 !important;
     }
-    header.bg-obsidian-950\/80 {
+    header {
       background-color: rgba(3, 3, 3, 0.98) !important;
+    }
+    /* Disable blur-[Xpx] decorative divs to reduce GPU layer count */
+    [class*="blur-["] {
+      filter: none !important;
     }
   }
 
-  /* New fade-in transition utility */
+  /* Fade-in utility: only visible on desktop */
   .fade-in-transition {
     opacity: 0;
     transition: opacity 0.4s ease-out;
