@@ -134,7 +134,6 @@ const madhurima: DeveloperProfile = {
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400/80" />
                 <span>UTF-8</span>
               </span>
-              <span>TypeScript</span>
             </div>
           </div>
         </div>

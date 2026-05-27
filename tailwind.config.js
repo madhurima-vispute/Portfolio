@@ -38,6 +38,11 @@ export default {
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
       },
+      fontSize: {
+        'xs':   ['13px', { lineHeight: '1.55' }],
+        'sm':   ['15px', { lineHeight: '1.55' }],
+        'base': ['16px', { lineHeight: '1.65' }],
+      },
       animation: {
         'fade-in': 'fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
         'slide-up': 'slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',

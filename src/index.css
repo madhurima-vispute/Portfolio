@@ -64,6 +64,34 @@
   }
 }
 
+/* ─── Body-text size bump (non-heading arbitrary values) ─────────*/
+
+[class~="text-[9px]"]  { font-size: 12px !important; line-height: 1.5 !important; }
+[class~="text-[10px]"] { font-size: 12px !important; line-height: 1.5 !important; }
+[class~="text-[11px]"] { font-size: 13px !important; line-height: 1.55 !important; }
+[class~="text-[12px]"] { font-size: 13px !important; line-height: 1.55 !important; }
+
+.text-xs { font-size: 14px !important; line-height: 1.55 !important; }
+.text-sm { font-size: 16px !important; line-height: 1.55 !important; }
+
+/* ─── Mobile responsive cap (≤ 768px) ───────────────────────────
+   Tailwind text-sm (15px) and text-xs (13px) are brought back
+   into the 12–14px range on mobile so layouts never overflow.
+   ──────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* text-sm: 15px desktop → 14px mobile */
+  :is(p, span, li, div, label, input, textarea, button, a).text-sm,
+  .text-sm { font-size: 14px !important; line-height: 1.55 !important; }
+
+  /* text-xs: 13px desktop → 12px mobile */
+  :is(p, span, li, div, label, input, textarea, button, a).text-xs,
+  .text-xs { font-size: 12px !important; line-height: 1.5 !important; }
+
+  /* Arbitrary bumped sizes — mobile floor */
+  [class~="text-[11px]"] { font-size: 12px !important; }
+  [class~="text-[12px]"] { font-size: 12px !important; }
+}
+
 /* Custom CSS utilities for smooth interactivity */
 .active-dot::after {
   content: '';
